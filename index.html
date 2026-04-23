@@ -1,10 +1,267 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Senior Design Project</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MetroDegree | Thermo-Fluid Module</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #0f172a;
+      color: white;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    nav h1 {
+      font-size: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .carousel-buttons button {
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .description {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .team-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .team-card img {
+      width: 100%;
+      border-radius: 10px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    footer {
+      background: #f4f4f4;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #0f172a;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+  </style>
 </head>
 <body>
-  <h1>Senior Design Project Website</h1>
-  <p>This site is currently under construction.</p>
+
+<header>
+  <nav>
+    <h1>Senior Design Project</h1>
+    <ul>
+      <li><a href="#journey">Our Journey</a></li>
+      <li><a href="#simulation">Simulation Results</a></li>
+      <li><a href="#testing">Physical Testing</a></li>
+      <li><a href="#report">Final Report</a></li>
+     
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="carousel">
+    <div class="slides" id="slides">
+      <img src="images/image1.jpg" alt="Project Image 1">
+      <img src="images/image2.jpg" alt="Project Image 2">
+      <img src="images/image3.jpg" alt="Project Image 3">
+    </div>
+    <div class="carousel-buttons">
+      <button onclick="prevSlide()">❮</button>
+      <button onclick="nextSlide()">❯</button>
+    </div>
+  </div>
+
+  <div class="description">
+    <h2>Project Overview</h2>
+    <p>
+      New Yorkers have faced sweltering heat reaching feels-like temperatures upwards of 130ºF on subway platforms which have caused health issues, discomfort, and decreased ridership numbers. As of 2024, the MTA has implemented air conditioning units and fans in select stations, however these are high-cost, produce harmful carbon emissions, and their installation causes delays in transportation. 
+      These concerns inspired the design of the Thermo-Fluids Module (TFM). 
+      Prioritizing safety, installation ease, and affordability has been the focus of the scope for this project as the goal is to install the TFM across all NYC subway platforms. 
+      Initial design iterations implemented a fully passive system, with the goal of maintaining a 5º temperature decrease on the platform, as this provides a noticeable difference in temperature for riders. Based on initial hand calculations, this cannot be supported sustainably or efficiently without some active assistance. 
+      The current design takes inspiration from a thermosiphon, a gravity-driven, fully passive heat exchanger, and a heat sink. Heat sinks are typically only seen on the microchip-size scale, but similar principles of fin efficiency and forced convection are present in our system. 
+      The thermosiphon is composed of a lower heat intake region and an upper heat output region. Fluid in the intake region is heated, expands, and travels upwards into the output tank. As it rises, it displaces the cooler fluid downward into the intake region, enforcing a natural convection cycle. Mapped over the subway station, the heat intake region is located at the subway platform, and is fulfilled by the TFM. 
+      For transferring the heat energy to the heat output region, water– selected for its high heat capacity and nontoxic, inexpensive, and renewable properties– runs through flexible tubing into an uninsulated aluminum tank positioned approximately 25 ft above the TFM, just beneath the sidewalk grates. An off-the-shelf fountain pump was incorporated as the active element on the output valve of the TFM to increase the mass flow rate of the water and overall heat transfer rate through the cooling system. 
+      A key design feature is the fins on the TFM, angled 30º into the airflow generated by trains entering and exiting the station, functioning as a heat sink by increasing surface area and improving convective heat transfer. 
+      The TFM is inherently adaptable to a greater subway network, allowing for multiple modules to be installed based on station sizes and needs. The versatility of the design further emphasizes its potential impact on cooling New York City. With temperatures rising every summer, the TFM cooling system presents a cost-effective, eco-friendly, scalable solution that lessens hazardous health risks and eases the discomfort of riders waiting on the subway platform.
+
+      
+    </p>
+  </div>
+</section>
+
+<section id="journey" class="section">
+  <h2>Our Journey</h2>
+  <p>Document your design iterations, early concepts, challenges, and progress timeline.</p>
+</section>
+  
+<section id="simulation" class="section">
+  <h2>Simulation Results</h2>
+  <p>Add simulation plots, FEA results, CFD images, and explanation here.</p>
+</section>
+
+<section id="testing" class="section">
+  <h2>Physical Testing Results</h2>
+  <p>Add test photos, data tables, and analysis here.</p>
+</section>
+
+<section id="report" class="section">
+  <h2>Final Report</h2>
+  <p>Download the complete senior design report below.</p>
+  <a class="download-btn" href="files/final_report.pdf" download>Download PDF</a>
+</section>
+
+
+<footer>
+  <div class="section">
+    <h2>Meet the Team</h2>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <img src="images/member1.jpg" alt="Team Member">
+        <h3>Milan Paris Vigil</h3>
+        <p>Role: CAD Design</p>
+        <p>Email: mpv3786@nyu.edu</p>
+      </div>
+
+      <div class="team-card">
+        <img src="images/member2.jpg" alt="Team Member">
+        <h3>Danielle Smolka 2</h3>
+        <p>Role: Thermal Analysis</p>
+        <p>Email: djs9456@nyu.edu</p>
+      </div>
+
+      <div class="team-card">
+        <img src="images/member3.jpg" alt="Team Member">
+        <h3>Anna Wadsworth</h3>
+        <p>Role: Testing Lead</p>
+        <p>Email: aw4984@nyu.edu</p>
+      </div>
+
+      <div class="team-card">
+        <img src="images/member4.jpg" alt="Team Member">
+        <h3>Sarah Ahmad</h3>
+        <p>Role: Fabrication</p>
+        <p>Email: sa7325@nyu.edu</p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script>
+let index = 0;
+const slides = document.getElementById('slides');
+const totalSlides = slides.children.length;
+
+function showSlide() {
+  slides.style.transform = `translateX(-${index * 100}%)`;
+}
+
+function nextSlide() {
+  index = (index + 1) % totalSlides;
+  showSlide();
+}
+
+function prevSlide() {
+  index = (index - 1 + totalSlides) % totalSlides;
+  showSlide();
+}
+
+setInterval(nextSlide, 5000);
+</script>
+
 </body>
 </html>
