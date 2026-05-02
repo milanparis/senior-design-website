@@ -265,7 +265,18 @@ The TFM body is constructed as a six-sided enclosure measuring 24 in × 12 in ×
 
 <h3>Steady-State Analysis</h3>
 <p>
-Steady-state simulations assessed long-term performance and confirmed consistent heat dissipation behavior under continuous operation.
+  A steady-state computational fluid dynamics (CFD) simulation was performed using ANSYS Fluent to evaluate the thermal performance of the fin assembly under continuous operating conditions. Due to meshing constraints, 
+  a simplified fin-rod assembly representing the scaled prototype were used. An air enclosure was created around the 24 aluminum fins to simulate the subway environment. 
+</p>  
+  In order to run this simulation the following boundary conditions were applied: a velocity inlet of 7.78 m/s at 310K, a pressure outlet with a 0 Pa guage pressure 
+  and a backflow temperature of 310 K, and a symmetry condition appled to remaining enclosure walls added to simulate the station enviroment. Material properties for 6061 aluminum and air were defined according to standard values. 
+</p>
+  The simulation results yielded an area-weighted average convective heat transfer coefficient of 256 W/m²K and a total heat transfer rate of 720 W. This value of the heat transfer coefficient is significantly higher than both the 
+  analytical and transient results. This discrepancy suggests that the steady-state simulation overestimates convective performance, likely due to mesh resolution limitations at the fluid–solid interface. Additionally, using the total surface heat flux of 206.54 W/m^2K from the simulation, 
+  and the total area of the fins of 0.37 m^2, the total heat dissipation is estimated to be 76 W per module. This results in a very low temperature difference, and does not meet the desired 5°F temperature reduction. This simulation is testing the passive cooling 
+  capacity of the fins alone, whereas the final prototype design incorporates a 140 GHP fountain pump. The addition of this pump significantly enhances the convective heat transfer within the system. Using water properties from Table X, the total heat removal capacity increases to approximately 3380 W 
+  which is 44 times greater than the fins passive cooling capacity. Based on these results, the single, scaled prototype provides only localized cooling, however the results demonstrate that following our initial goal of having multiple modules wsithin the station, can produce noticeable temperature reductions. 
+
 </p>
 
 <div class="image-grid">
